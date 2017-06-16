@@ -10,6 +10,7 @@ Inspired by a contribution of calbertts in [this fzf issue](https://github.com/j
 Copy [fzf-docker.plugin.zsh](https://github.com/pierpo/fzf-docker/blob/master/fzf-docker.plugin.zsh) in `.oh-my-zsh/plugins/fzf-docker` and add it to your oh-my-zsh plugins.
 
 ```bash
+# In your .zshrc
 plugins=(... fzf-docker ...)
 ```
 
