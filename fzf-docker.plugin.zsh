@@ -9,13 +9,12 @@ _fzf_complete_docker() {
     grep -v "Management Commands:" |
     grep -v "Commands:" |
     grep -v 'COMMAND --help' |
-    awk '{print $1}' |
     grep .
   )
 
   ARGS="$@"
   if [[ $ARGS = 'docker ' ]]; then
-    _fzf_complete "--multi --reverse" "$@" < <(
+    _fzf_complete "--reverse -n 1 --height=80%" "$@" < <(
       echo $DOCKER_COMMANDS
     )
   elif [[ $ARGS = 'docker rmi ' || $ARGS = 'docker -f ' ]]; then
@@ -28,4 +27,10 @@ _fzf_complete_docker() {
     )
   fi
 }
+
+_fzf_complete_docker_post() {
+  # Post-process the fzf output to keep only the command name and not the explanation with it
+  awk '{print $1}'
+}
+
 [ -n "$BASH" ] && complete -F _fzf_complete_docker -o default -o bashdefault docker
