@@ -7,7 +7,13 @@ Inspired by a contribution of calbertts in [this fzf issue](https://github.com/j
 
 # Installation
 
-Copy [fzf-docker.plugin.zsh](https://github.com/pierpo/fzf-docker/blob/master/fzf-docker.plugin.zsh) in `.oh-my-zsh/plugins/fzf-docker` and add it to your oh-my-zsh plugins.
+Clone the repo in `.oh-my-zsh/plugins/fzf-docker`
+
+```bash
+git clone https://github.com/pierpo/fzf-docker ~/.oh-my-zsh/plugins/fzf-docker
+```
+
+Then add the plugin to your `.zshrc`
 
 ```bash
 # In your .zshrc
