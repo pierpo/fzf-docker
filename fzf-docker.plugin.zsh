@@ -21,7 +21,7 @@ _fzf_complete_docker() {
     _fzf_complete "--multi --reverse" "$@" < <(
       docker images --format '{{.Repository}}:{{.Tag}}'
     )
-  elif [[ $ARGS = 'docker start ' || $ARGS = 'docker stop ' || $ARGS = 'docker rm ' ]]; then
+  elif [[ $ARGS = 'docker start ' || $ARGS = 'docker restart ' || $ARGS = 'docker stop ' || $ARGS = 'docker rm ' ]]; then
     _fzf_complete "--multi --reverse" "$@" < <(
       docker ps -a --format '{{.Names}}'
     )
