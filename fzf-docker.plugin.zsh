@@ -13,15 +13,15 @@ _fzf_complete_docker() {
   )
 
   ARGS="$@"
-  if [[ $ARGS = 'docker ' ]]; then
+  if [[ $ARGS == 'docker ' ]]; then
     _fzf_complete "--reverse -n 1 --height=80%" "$@" < <(
       echo $DOCKER_COMMANDS
     )
-  elif [[ $ARGS = 'docker rmi ' || $ARGS = 'docker -f ' ]]; then
+  elif [[ $ARGS == 'docker rmi'* || $ARGS == 'docker -f'* ]]; then
     _fzf_complete "--multi --reverse" "$@" < <(
       docker images --format '{{.Repository}}:{{.Tag}}'
     )
-  elif [[ $ARGS = 'docker start ' || $ARGS = 'docker restart ' || $ARGS = 'docker stop ' || $ARGS = 'docker rm ' || $ARGS = 'docker exec ' || $ARGS = 'docker exec -it ' || $ARGS = 'docker kill ' ]]; then
+  elif [[ $ARGS == 'docker start'* || $ARGS == 'docker restart'* || $ARGS == 'docker stop'* || $ARGS == 'docker rm'* || $ARGS == 'docker exec'* || $ARGS == 'docker kill'* ]]; then
     _fzf_complete "--multi --reverse" "$@" < <(
       docker ps -a --format '{{.Names}}'
     )
