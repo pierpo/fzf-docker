@@ -23,7 +23,7 @@ _fzf_complete_docker() {
     )
   elif [[ $ARGS == 'docker start'* || $ARGS == 'docker restart'* || $ARGS == 'docker stop'* || $ARGS == 'docker rm'* || $ARGS == 'docker exec'* || $ARGS == 'docker kill'* ]]; then
     _fzf_complete "--multi --reverse" "$@" < <(
-      docker ps -a --format '{{.Names}}'
+      docker ps --format '{{.Names}}'
     )
   fi
 }
