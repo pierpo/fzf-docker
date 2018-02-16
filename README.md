@@ -1,5 +1,7 @@
 Inspired by a contribution of calbertts in [this fzf issue](https://github.com/junegunn/fzf/issues/760).
 
+![Example usage](https://raw.githubusercontent.com/pierpo/fzf-docker/master/fzf-docker.gif)
+
 # Dependencies
 
 - [fzf](https://github.com/junegunn/fzf)
