@@ -1,5 +1,9 @@
 Inspired by a contribution of calbertts in [this fzf issue](https://github.com/junegunn/fzf/issues/760).
 
+# What is this?
+
+Auto complete your Docker commands with the currently running containers, using fuzzy search.
+
 ![Example usage](https://raw.githubusercontent.com/pierpo/fzf-docker/master/fzf-docker.gif)
 
 # Dependencies
