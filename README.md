@@ -13,6 +13,8 @@ Auto complete your Docker commands with the currently running containers, using 
 
 # Installation
 
+First, install [fzf](https://github.com/junegunn/fzf).
+
 Clone the repo in `.oh-my-zsh/plugins/fzf-docker`
 
 ```bash
