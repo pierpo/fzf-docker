@@ -1,3 +1,6 @@
+FZF_DOCKER_PS_FORMAT="table {{.ID}}\t{{.Names}}\t{{.Image}}\t{{.Ports}}"
+FZF_DOCKER_PS_START_FORMAT="table {{.ID}}\t{{.Names}}\t{{.Status}}\t{{.Image}}"
+
 _fzf_complete_docker() {
   # Get all Docker commands
   #
@@ -25,9 +28,13 @@ _fzf_complete_docker() {
     _fzf_complete "--multi --header-lines=1" "$@" < <(
       docker images --format "table {{.ID}}\t{{.Repository}}\t{{.Tag}}\t{{.Size}}"
     )
-  elif [[ $ARGS == 'docker stop'* || $ARGS == 'docker rm'* || $ARGS == 'docker exec'* || $ARGS == 'docker kill'* || $ARGS == 'docker start'* || $ARGS == 'docker restart'* || $ARGS == 'docker logs'* ]]; then
+  elif [[ $ARGS == 'docker stop'* || $ARGS == 'docker rm'* || $ARGS == 'docker exec'* || $ARGS == 'docker kill'* || $ARGS == 'docker restart'* || $ARGS == 'docker logs'* ]]; then
     _fzf_complete "--multi --header-lines=1 " "$@" < <(
-      docker ps
+      docker ps --format "${FZF_DOCKER_PS_FORMAT}"
+    )
+  elif [[ $ARGS == 'docker start'* ]]; then
+     _fzf_complete "--multi --header-lines=1 " "$@" < <(
+      docker ps -a --format "${FZF_DOCKER_PS_START_FORMAT}"
     )
   fi
 }
