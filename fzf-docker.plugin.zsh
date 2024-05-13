@@ -34,7 +34,7 @@ _fzf_complete_docker() {
     )
   elif [[ $ARGS == 'docker rm'* ]]; then
     _fzf_complete "--multi --header-lines=1 " "$@" < <(
-      docker ps -a | grep Exit --format "${FZF_DOCKER_PS_FORMAT}"
+      docker ps -a --format "${FZF_DOCKER_PS_FORMAT}"
   )
   elif [[ $ARGS == 'docker start'* ]]; then
      _fzf_complete "--multi --header-lines=1 " "$@" < <(
