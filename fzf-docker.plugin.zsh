@@ -28,10 +28,14 @@ _fzf_complete_docker() {
     _fzf_complete "--multi --header-lines=1" "$@" < <(
       docker images --format "table {{.ID}}\t{{.Repository}}\t{{.Tag}}\t{{.Size}}"
     )
-  elif [[ $ARGS == 'docker stop'* || $ARGS == 'docker rm'* || $ARGS == 'docker exec'* || $ARGS == 'docker kill'* || $ARGS == 'docker restart'* || $ARGS == 'docker logs'* ]]; then
+  elif [[ $ARGS == 'docker stop'* || $ARGS == 'docker exec'* || $ARGS == 'docker kill'* || $ARGS == 'docker restart'* || $ARGS == 'docker logs'* ]]; then
     _fzf_complete "--multi --header-lines=1 " "$@" < <(
       docker ps --format "${FZF_DOCKER_PS_FORMAT}"
     )
+  elif [[ $ARGS == 'docker rm'* ]]; then
+    _fzf_complete "--multi --header-lines=1 " "$@" < <(
+      docker ps -a --format "${FZF_DOCKER_PS_FORMAT}"
+  )
   elif [[ $ARGS == 'docker start'* ]]; then
      _fzf_complete "--multi --header-lines=1 " "$@" < <(
       docker ps -a --format "${FZF_DOCKER_PS_START_FORMAT}"
